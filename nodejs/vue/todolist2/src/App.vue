@@ -1,29 +1,13 @@
 <template>
-  <div>
-    <Header />
-    <main>
-      <Stats />
-      <TaskList />
-    </main>
-  </div>
+  <router-view />
 </template>
 
 <script>
-import Header from './components/Header.vue';
-import Stats from './components/Stats.vue';
-import TaskList from './components/TaskList.vue';
-
 export default {
-  components: {
-    Header,
-    Stats,
-    TaskList,
-  },
+  name: 'App',
 };
 </script>
 
-<style scoped>
-main {
-  padding: 20px;
-}
+<style>
+
 </style>
