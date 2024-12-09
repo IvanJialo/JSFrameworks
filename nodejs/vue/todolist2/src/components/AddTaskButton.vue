@@ -1,4 +1,8 @@
 <template>
+  <p v-show="contador == 5">¡Estás a medio camino!</p>
+  <p v-if="contador >= 10">Deja de darle al botón pesado</p>
+  <p v-else-if="contador <= -5">Eres muy negativo, me minas la moral</p>
+
   <button @click="incrementarContador()" class="add-task-button">+</button>
   <p>Contador: {{ contador }}</p>
   <button @click="decrementarContador()" class="remove-task-button">-</button>
