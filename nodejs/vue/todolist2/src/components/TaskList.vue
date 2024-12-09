@@ -11,7 +11,6 @@
       </li>
     </ul>
 
-    <!-- Solo el botón con efecto de hover -->
     <AddTaskButton />
   </section>
 </template>
@@ -46,7 +45,6 @@ export default {
 <style scoped>
 #tasks {
   position: relative;
-  /* Necesario para el posicionamiento absoluto del botón */
   padding: 20px 0;
   background-color: #f8f9fa;
   border-radius: 8px;

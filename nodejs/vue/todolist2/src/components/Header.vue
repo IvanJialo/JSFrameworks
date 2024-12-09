@@ -6,7 +6,7 @@
     </div>
     <div class="header-icons">
       <button class="icon-button" aria-label="Notifications">
-        {{ notifications}}
+        {{ notifications }}
       </button>
       <router-link to="/categories" class="icon-button" aria-label="Settings">
         {{ groupedTask }}
