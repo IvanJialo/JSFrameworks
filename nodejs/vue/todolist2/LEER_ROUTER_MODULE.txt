@@ -1,0 +1,7 @@
+Hola Luis,
+
+básicamente estuve mirando como hacer para cambiar entre diferentes páginas 
+y para ello encontré el modulo router, entonces para comprobar que están 
+ambas páginas y que funcione el botón del clip, lo vas a necesitar.
+
+Gracias y un saludo ^^
