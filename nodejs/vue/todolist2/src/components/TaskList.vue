@@ -5,6 +5,8 @@
       <li v-for="task in tasks" :key="task.id">
         <span class="time"> {{ today }} {{ task.time }}</span>
         <p>{{ task.title }}</p>
+        <input v-model="inputUser" type="text" name="user" id="user">
+        <p>Has escrito: {{ inputUser }}</p>
         <ul v-if="task.subtasks">
           <li v-for="subtask in task.subtasks" :key="subtask">{{ subtask }}</li>
         </ul>
@@ -43,8 +45,6 @@ export default {
         },
         { id: 5, time: '10:30 PM', title: 'Read book' },
       ],
-      today: 'Today 📅 ',
-      showModal: false, // Controla la visibilidad del modal
     };
   },
   methods: {
