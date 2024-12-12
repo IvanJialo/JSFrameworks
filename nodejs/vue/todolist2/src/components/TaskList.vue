@@ -3,7 +3,7 @@
     <h2>Today's Task</h2>
     <ul>
       <li v-for="task in tasks" :key="task.id">
-        <span class="time">{{ task.time }}</span>
+        <span class="time"> {{ today }} {{ task.time }}</span>
         <p>{{ task.title }}</p>
         <ul v-if="task.subtasks">
           <li v-for="subtask in task.subtasks" :key="subtask">{{ subtask }}</li>
@@ -11,18 +11,23 @@
       </li>
     </ul>
 
-    <!-- Solo el botón con efecto de hover -->
-    <AddTaskButton />
+    <!-- Botón para abrir el modal -->
+    <AddTaskButton @click="showModal = true" />
+
+    <!-- Modal para añadir una tarea -->
+    <CreateTaskModal v-if="showModal" @close-modal="showModal = false" @task-created="addTask" />
   </section>
 </template>
 
 <script>
 import AddTaskButton from './AddTaskButton.vue';
+import CreateTaskModal from './CreateTaskModal.vue';
 
 export default {
   name: 'TaskList',
   components: {
     AddTaskButton,
+    CreateTaskModal,
   },
   data() {
     return {
@@ -38,7 +43,15 @@ export default {
         },
         { id: 5, time: '10:30 PM', title: 'Read book' },
       ],
+      today: 'Today 📅 ',
+      showModal: false, // Controla la visibilidad del modal
     };
+  },
+  methods: {
+    addTask(newTask) {
+      // Añade la nueva tarea a la lista
+      this.tasks.push(newTask);
+    },
   },
 };
 </script>
@@ -46,7 +59,6 @@ export default {
 <style scoped>
 #tasks {
   position: relative;
-  /* Necesario para el posicionamiento absoluto del botón */
   padding: 20px 0;
   background-color: #f8f9fa;
   border-radius: 8px;

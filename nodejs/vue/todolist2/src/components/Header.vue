@@ -70,11 +70,11 @@ export default {
   font-size: 20px;
   cursor: pointer;
   transition: transform 0.2s ease;
+  text-decoration: none;
 }
 
 .icon-button:hover {
   transform: scale(1.2);
-  /* Aumenta el tamaño ligeramente al pasar el mouse */
 }
 
 .icon-button:focus {
