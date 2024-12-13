@@ -10,8 +10,8 @@
             ...
           </button>
         </div>
-        <ul v-if="task.subtasks">
-          <li v-for="subtask in task.subtasks" :key="subtask">{{ subtask }}</li>
+        <ul v-if="task.subtasks && task.subtasks.length">
+          <li v-for="(subtask, index) in task.subtasks" :key="index">{{ subtask }}</li>
         </ul>
       </li>
     </ul>
@@ -66,6 +66,9 @@ export default {
   },
   methods: {
     addTask(newTask) {
+      if (!newTask.subtasks) {
+        newTask.subtasks = []; // Aseguramos que la tarea tiene subtasks
+      }
       this.tasks.push(newTask);
       this.saveTasksToLocalStorage(); // Guarda las tareas en localStorage
     },
@@ -78,6 +81,9 @@ export default {
       this.selectedTask = null;
     },
     addSubtask({ task, subtask }) {
+      if (!task.subtasks) {
+        this.$set(task, 'subtasks', []); // Inicializamos subtasks si no existe
+      }
       task.subtasks.push(subtask);
       this.saveTasksToLocalStorage(); // Guarda las tareas actualizadas en localStorage
     },
