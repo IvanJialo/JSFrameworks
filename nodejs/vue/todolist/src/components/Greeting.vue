@@ -1,17 +1,13 @@
 <script>
 export default {
-  data() {
-    return {
-      name: "Hello, little boy",
-      subtitle: "You have some shit to do, little boy."
-    };
-  }
+  name: "Greeting",
+  props: ["nombre", "subtitle"],
 };
 </script>
 
 <template>
   <div class="greeting">
-    <h1>{{ name }}</h1>
+    <h1>{{ nombre }}</h1>
     <span class="subtitle">{{ subtitle }}</span>
   </div>
 </template>

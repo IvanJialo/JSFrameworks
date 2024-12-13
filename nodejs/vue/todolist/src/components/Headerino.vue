@@ -3,6 +3,7 @@ import Greeting from "./Greeting.vue";
 import Stats from "./Stats.vue";
 import Notification from "./Notification.vue";
 import Settings from "./Settings.vue";
+import MiBoton from "./MiBoton.vue";
 
 export default {
     components: {
@@ -10,42 +11,31 @@ export default {
         Stats,
         Notification,
         Settings,
+        MiBoton,
+    },
+    methods: {
+        evento1(mensaje) {
+            alert(mensaje);
+        },
+        evento2(mensaje) {
+            console.log(mensaje);
+        },
+        evento3(mensaje) {
+            window.location.reload();
+        },
     },
 };
 </script>
 
 <template>
-    <header class="headerino">
-        <Greeting />
-
-        <div class="header-actions">
-            <Notification />
-            <Settings />
-        </div>
-
-        <div class="stats-wrapper">
-            <Stats />
-        </div>
-    </header>
+        <!-- <Greeting nombre="Hello, little boy" subtitle="What are you doing today?"/> -->
+        <MiBoton text="1" clase="red" @click1="evento1"/>
+        <MiBoton text="2" clase="blue" @click1="evento2"/>
+        <MiBoton text="3" clase="green" @click1="evento3"/>
 </template>
 
 <style>
-.headerino {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    border-bottom: 1px solid #ddd;
-    background-color: #f8f9fa;
-}
-
-.stats-wrapper {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-
-.header-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
+* {
+    background-color: white;
 }
 </style>
